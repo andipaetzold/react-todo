@@ -1,30 +1,13 @@
 import React, { Component } from 'react';
 import EntryListCard from './EntryListCard';
 import NewEntryCard from './NewEntryCard';
+import { ENTRIES } from './data';
 
 class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      entries: [
-        {
-          id: 1,
-          name: 'TODO 1',
-          done: true,
-        },
-        {
-          id: 2,
-          name: 'TODO 2',
-          done: false
-        },
-        {
-          id: 3,
-          name: 'TODO 3',
-          done: false
-        },
-      ]
-    };
+    this.state = { entries: ENTRIES, };
   }
 
   setEntryDone(entry) {
