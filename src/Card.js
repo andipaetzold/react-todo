@@ -4,7 +4,7 @@ import CardBody from './CardBody';
 
 class Card extends Component {
     render() {
-        return <div className="card">
+        return <div className="card m-4">
             <CardTitle body={this.props.title} />
             <CardBody body={this.props.body} />
         </div>
