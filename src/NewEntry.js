@@ -13,12 +13,12 @@ class NewEntry extends Component {
         event.preventDefault();
 
         this.props.addEntry(this.state.name);
+
+        this.setState({ name: '' });
     }
 
     handleNameChange(event) {
-        this.setState({
-            name: event.target.value
-        });
+        this.setState({ name: event.target.value });
     }
 
     render() {
