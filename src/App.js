@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import EntryList from './EntryList';
+import EntryListCard from './EntryListCard';
 
 class App extends Component {
   constructor(props) {
@@ -54,8 +54,8 @@ class App extends Component {
 
     return (
       <div className="container">
-        <EntryList entries={notDoneEntries} entryClick={this.setEntryDone.bind(this)} />
-        <EntryList title="Done" entries={doneEntries} entryClick={this.setEntryNotDone.bind(this)} />
+        <EntryListCard entries={notDoneEntries} entryClick={this.setEntryDone.bind(this)} />
+        <EntryListCard title="Done" entries={doneEntries} entryClick={this.setEntryNotDone.bind(this)} />
       </div>
     );
   }

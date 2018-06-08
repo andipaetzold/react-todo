@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class CardHeader extends Component {
+class CardTitle extends Component {
     render() {
         if (!this.props.title) {
             return null;
@@ -12,4 +12,4 @@ class CardHeader extends Component {
     }
 }
 
-export default CardHeader;
+export default CardTitle;
