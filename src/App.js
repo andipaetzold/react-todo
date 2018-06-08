@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import EntryListCard from './EntryListCard';
+import NewEntryCard from './NewEntryCard';
 
 class App extends Component {
   constructor(props) {
@@ -34,6 +35,23 @@ class App extends Component {
     this.updateEntryDone(entry, false);
   }
 
+  addEntry(name) {
+    this.setState(prevState => {
+      const entry = {
+        id: Math.max(...prevState.entries.map(e => e.id)) + 1,
+        name,
+        done: false,
+      };
+
+      return {
+        entries: [
+          ...prevState.entries,
+          entry
+        ]
+      };
+    });
+  }
+
   updateEntryDone(entry, done) {
     this.setState(prevState => {
       const entries = prevState.entries;
@@ -54,6 +72,7 @@ class App extends Component {
 
     return (
       <div className="container">
+        <NewEntryCard addEntry={this.addEntry.bind(this)} />
         <EntryListCard entries={notDoneEntries} entryClick={this.setEntryDone.bind(this)} />
         <EntryListCard title="Done" entries={doneEntries} entryClick={this.setEntryNotDone.bind(this)} />
       </div>
