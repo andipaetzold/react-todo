@@ -1,5 +1,14 @@
 {
   "name": "react-todo",
+  "author": {
+    "name": "Andreas Pätzold",
+    "url": "https://github.com/andipaetzold",
+    "email": "andi.paetzold@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:andipaetzold/react-todo.git"
+  },
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -10,8 +19,6 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "build": "react-scripts build"
   }
 }
