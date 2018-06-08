@@ -3,7 +3,7 @@ import Entry from './Entry';
 
 class EntryList extends Component {
     render() {
-        const entryList = this.props.entries.map(entry => <Entry key={entry.id} entry={entry} />);
+        const entryList = this.props.entries.map(entry => <Entry key={entry.id} entry={entry} entryClick={this.props.entryClick.bind(this, entry)} />);
 
         let header = null;
         if (this.props.title) {

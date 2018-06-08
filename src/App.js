@@ -26,11 +26,36 @@ class App extends Component {
     };
   }
 
+  setEntryDone(entry) {
+    this.updateEntryDone(entry, true);
+  }
+
+  setEntryNotDone(entry) {
+    this.updateEntryDone(entry, false);
+  }
+
+  updateEntryDone(entry, done) {
+    this.setState(prevState => {
+      const entries = prevState.entries;
+      const entryIndex = entries.findIndex(e => e.id === entry.id);
+
+      if (entryIndex < 0) {
+        return {};
+      }
+
+      entries[entryIndex].done = done;
+      return { entries };
+    });
+  }
+
   render() {
+    const doneEntries = this.state.entries.filter(e => e.done);
+    const notDoneEntries = this.state.entries.filter(e => !e.done);
+
     return (
       <div className="container">
-        <EntryList entries={this.state.entries} />
-        <EntryList title="Done" entries={this.state.entries} />
+        <EntryList entries={notDoneEntries} entryClick={this.setEntryDone.bind(this)} />
+        <EntryList title="Done" entries={doneEntries} entryClick={this.setEntryNotDone.bind(this)} />
       </div>
     );
   }
