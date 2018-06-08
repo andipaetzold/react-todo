@@ -4,9 +4,9 @@ import NewEntry from './NewEntry';
 
 class NewEntryCard extends Component {
     render() {
-        const newEntry = <NewEntry addEntry={this.props.addEntry} />;
-
-        return <Card title="New entry" body={newEntry} />;
+        return <Card title="New entry">
+            <NewEntry addEntry={this.props.addEntry} />
+        </Card>;
     }
 }
 

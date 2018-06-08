@@ -6,7 +6,7 @@ class Card extends Component {
     render() {
         return <div className="card m-4">
             <CardTitle title={this.props.title} />
-            <CardBody body={this.props.body} />
+            <CardBody>{this.props.children}</CardBody>
         </div>
     }
 }
