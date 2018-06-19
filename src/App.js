@@ -11,11 +11,11 @@ class App extends Component {
     }
 
     setEntryDone(entry) {
-        this.updateEntryDone(entry, true);
+        this.updateEntryDoneState(entry, true);
     }
 
     setEntryNotDone(entry) {
-        this.updateEntryDone(entry, false);
+        this.updateEntryDoneState(entry, false);
     }
 
     addEntry(name) {
@@ -35,7 +35,7 @@ class App extends Component {
         });
     }
 
-    updateEntryDone(entry, done) {
+    updateEntryDoneState(entry, done) {
         this.setState(prevState => {
             const entries = prevState.entries;
             const entryIndex = entries.findIndex(e => e.id === entry.id);
