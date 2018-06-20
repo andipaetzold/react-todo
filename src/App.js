@@ -54,11 +54,13 @@ class App extends Component {
         const notDoneEntries = this.state.entries.filter(e => !e.done);
 
         return (
-            <div className="container">
-                <NewEntryCard addEntry={this.addEntry.bind(this)} />
-                <EntryListCard entries={notDoneEntries} entryClick={this.setEntryDone.bind(this)} />
-                <EntryListCard title="Done" entries={doneEntries} entryClick={this.setEntryNotDone.bind(this)} />
-            </div>
+            <React.StrictMode>
+                <div className="container">
+                    <NewEntryCard addEntry={this.addEntry.bind(this)} />
+                    <EntryListCard entries={notDoneEntries} entryClick={this.setEntryDone.bind(this)} />
+                    <EntryListCard title="Done" entries={doneEntries} entryClick={this.setEntryNotDone.bind(this)} />
+                </div>
+            </React.StrictMode>
         );
     }
 }
