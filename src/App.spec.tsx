@@ -8,16 +8,10 @@ it('renders without crashing', () => {
 });
 
 it('renders NewEntryCard correctly', () => {
-    const addEntrySpy = jest.fn();
-
     const wrapper = shallow(<App />);
+    const wrapperInstance = wrapper.instance() as App;
 
-    expect(wrapper.containsMatchingElement(<NewEntryCard addEntry={addEntrySpy} />)).toEqual(true);
-
-    const newEntryCardWrapper: ShallowWrapper<any, any> = wrapper.find('NewEntryCard');
-    newEntryCardWrapper.props().addEntry('Test');
-    expect(addEntrySpy.mock.calls.length).toEqual(1);
-    expect(addEntrySpy.mock.calls[0]).toEqual(['Test']);
+    expect(wrapper.containsMatchingElement(<NewEntryCard addEntry={wrapperInstance.addEntry} />)).toEqual(true);
 });
 
 it('adds new entries correctly', () => {
