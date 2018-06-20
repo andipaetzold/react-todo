@@ -1,8 +1,14 @@
-import React, { Component } from 'react';
+import * as React from 'react';
+import { IEntry } from 'src/domain/IEntry';
 import Entry from './Entry';
 
-class EntryList extends Component {
-    render() {
+interface IProps {
+    entries: IEntry[];
+    entryClick: (entry: IEntry) => any;
+}
+
+class EntryList extends React.Component<IProps> {
+    public render() {
         if (!this.props.entries) {
             return null;
         }

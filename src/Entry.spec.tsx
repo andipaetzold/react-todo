@@ -1,14 +1,11 @@
-import React from 'react';
-import Entry from './Entry';
 import { shallow } from 'enzyme';
-
-it('does not render without entry property', () => {
-    const wrapper = shallow(<Entry />);
-    expect(wrapper.type()).toEqual(null);
-});
+import * as React from 'react';
+import Entry from './Entry';
 
 it('renders with entry property', () => {
     const entry = {
+        done: true,
+        id: 1,
         name: 'Test',
     };
     const wrapper = shallow(<Entry entry={entry} />);
@@ -18,6 +15,8 @@ it('renders with entry property', () => {
 it('renders with entry and onClick property', () => {
     const onClickSpy = jest.fn();
     const entry = {
+        done: true,
+        id: 1,
         name: 'Test',
     };
     const wrapper = shallow(<Entry entry={entry} entryClick={onClickSpy} />);

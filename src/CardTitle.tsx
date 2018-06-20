@@ -1,7 +1,11 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 
-class CardTitle extends Component {
-    render() {
+interface IProps {
+    title?: string;
+}
+
+class CardTitle extends React.Component<IProps> {
+    public render() {
         if (!this.props.title) {
             return null;
         }

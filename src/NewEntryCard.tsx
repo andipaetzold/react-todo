@@ -1,9 +1,13 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import Card from './Card';
 import NewEntry from './NewEntry';
 
-class NewEntryCard extends Component {
-    render() {
+interface IProps {
+    addEntry: (name: string) => any;
+}
+
+class NewEntryCard extends React.Component<IProps> {
+    public render() {
         return <Card title="New entry">
             <NewEntry addEntry={this.props.addEntry} />
         </Card>;

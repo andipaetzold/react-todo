@@ -1,9 +1,16 @@
-import React, { Component } from 'react';
-import EntryList from './EntryList';
+import * as React from 'react';
 import Card from './Card';
+import { IEntry } from './domain/IEntry';
+import EntryList from './EntryList';
 
-class EntryListCard extends Component {
-    render() {
+interface IProps {
+    title?: string;
+    entries: IEntry[];
+    entryClick: (entry: IEntry) => any;
+}
+
+class EntryListCard extends React.Component<IProps> {
+    public render() {
         if (this.props.entries.length === 0) {
             return null;
         }

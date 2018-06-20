@@ -1,17 +1,19 @@
-export const ENTRIES = [
+import { IEntry } from './domain/IEntry';
+
+export const ENTRIES: IEntry[] = [
     {
+        done: true,
         id: 1,
         name: 'TODO 1',
-        done: true,
     },
     {
+        done: false,
         id: 2,
         name: 'TODO 2',
-        done: false
     },
     {
+        done: false,
         id: 3,
         name: 'TODO 3',
-        done: false
     },
 ];

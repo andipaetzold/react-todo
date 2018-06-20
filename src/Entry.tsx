@@ -1,7 +1,13 @@
-import React, { Component } from 'react';
+import * as React from 'react';
+import { IEntry } from 'src/domain/IEntry';
 
-class Entry extends Component {
-    render() {
+interface IProps {
+    entry: IEntry;
+    entryClick?: () => any;
+}
+
+class Entry extends React.Component<IProps> {
+    public render() {
         if (!this.props.entry) {
             return null;
         }

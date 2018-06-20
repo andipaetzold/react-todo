@@ -1,20 +1,17 @@
-import React from 'react';
-import EntryList from './EntryList';
-import Entry from './Entry';
 import { shallow } from 'enzyme';
-
-it('does not render without entries property', () => {
-    const wrapper = shallow(<EntryList />);
-    expect(wrapper.type()).toEqual(null);
-});
+import * as React from 'react';
+import Entry from './Entry';
+import EntryList from './EntryList';
 
 it('renders with entries property', () => {
+    const entryClickSpy = jest.fn();
+
     const entries = [
-        { id: 1, name: 'Entry 1', },
-        { id: 2, name: 'Entry 2', },
+        { done: true, id: 1, name: 'Entry 1', },
+        { done: true, id: 2, name: 'Entry 2', },
     ];
 
-    const wrapper = shallow(<EntryList entries={entries} />);
+    const wrapper = shallow(<EntryList entries={entries} entryClick={entryClickSpy} />);
     expect(wrapper.first().type()).toEqual('ul');
     expect(wrapper.containsAllMatchingElements([
         <Entry key="1" entry={entries[0]} />,
@@ -25,8 +22,8 @@ it('renders with entries property', () => {
 it('renders with entries and entryClick property', () => {
     const entryClickSpy = jest.fn();
     const entries = [
-        { id: 1, name: 'Entry 1', },
-        { id: 2, name: 'Entry 2', },
+        { done: true, id: 1, name: 'Entry 1', },
+        { done: true, id: 2, name: 'Entry 2', },
     ];
 
     const wrapper = shallow(<EntryList entries={entries} entryClick={entryClickSpy} />);

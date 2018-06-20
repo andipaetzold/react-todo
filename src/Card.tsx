@@ -1,9 +1,13 @@
-import React, { Component } from 'react';
-import CardTitle from './CardTitle';
+import * as React from 'react';
 import CardBody from './CardBody';
+import CardTitle from './CardTitle';
 
-class Card extends Component {
-    render() {
+interface IProps {
+    title?: string;
+}
+
+class Card extends React.Component<IProps>{
+    public render() {
         return <div className="card m-4">
             <CardTitle title={this.props.title} />
             <CardBody>{this.props.children}</CardBody>
